@@ -5,8 +5,7 @@ namespace dr4_tp2.Pages.CityManager
 {
     public class CreateCityModel : PageModel
     {
-        [BindProperty] public string CityName { get; set; } = string.Empty;
-
+        public string CityName { get; set; } = string.Empty;
         public bool IsSubmitted { get; private set; }
 
         public void OnGet()
@@ -14,10 +13,11 @@ namespace dr4_tp2.Pages.CityManager
             IsSubmitted = false;
         }
 
-        public IActionResult OnPost()
+        public IActionResult OnPost(string cityName)
         {
+            CityName = cityName;
             IsSubmitted = true;
-
+            
             return Page();
         }
     }
