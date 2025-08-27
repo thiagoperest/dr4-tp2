@@ -24,10 +24,12 @@
                     <div class="mb-3">
                         <label asp-for="Input.CountryName" class="form-label">Nome do País:</label>
                         <input asp-for="Input.CountryName" class="form-control" placeholder="Digite o nome do país" />
+                        <span asp-validation-for="Input.CountryName" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label asp-for="Input.CountryCode" class="form-label">Código do País:</label>
                         <input asp-for="Input.CountryCode" class="form-control" placeholder="Digite o código do país" />
+                        <span asp-validation-for="Input.CountryCode" class="text-danger"></span>
                     </div>
                     <div class="d-grid">
                         <button type="submit" class="btn btn-primary">Cadastrar País</button>
@@ -37,3 +39,7 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
