@@ -1,0 +1,60 @@
+@page
+@model dr4_tp2.Pages.CityManager.CreateMultipleCountriesModel
+@{
+    ViewData["Title"] = "Cadastrar Múltiplos Países";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">@ViewData["Title"]</h3>
+            </div>
+            <div class="card-body">
+                @if (Model.SubmittedCountries.Any() && Model.IsSubmitted)
+                {
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Países cadastrados com sucesso!</h4>
+                        @foreach (var country in Model.SubmittedCountries)
+                        {
+                            <p class="mb-1"><strong>@country.CountryName</strong> - @country.CountryCode</p>
+                        }
+                    </div>
+                }
+
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>Nome do País</strong>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Código do País</strong>
+                        </div>
+                    </div>
+                    
+                    @for (int i = 0; i < 5; i++)
+                    {
+                        <div class="row mb-3 mt-2">
+                            <div class="col-md-6">
+                                <input asp-for="Countries[i].CountryName" class="form-control" placeholder="Nome do país @(i + 1)" />
+                                <span asp-validation-for="Countries[i].CountryName" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <input asp-for="Countries[i].CountryCode" class="form-control" placeholder="Código do país @(i + 1)" />
+                                <span asp-validation-for="Countries[i].CountryCode" class="text-danger"></span>
+                            </div>
+                        </div>
+                    }
+                    
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-primary">Cadastrar Países</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
