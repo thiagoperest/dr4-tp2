@@ -1,0 +1,34 @@
+@page
+@model dr4_tp2.Pages.CityManager.CreateCityModel
+@{
+    ViewData["Title"] = "Cadastro de Cidade Turística";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">@ViewData["Title"]</h3>
+            </div>
+            <div class="card-body">
+                @if (!string.IsNullOrEmpty(Model.CityName) && Model.IsSubmitted)
+                {
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Cidade cadastrada com sucesso!</h4>
+                        <p class="mb-0"><strong>Nome da cidade:</strong> @Model.CityName</p>
+                    </div>
+                }
+
+                <form method="post">
+                    <div class="mb-3">
+                        <label asp-for="CityName" class="form-label">Nome da Cidade:</label>
+                        <input asp-for="CityName" class="form-control" placeholder="Digite o nome da cidade turística"/>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Cadastrar Cidade</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

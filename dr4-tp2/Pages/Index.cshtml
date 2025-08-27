@@ -1,10 +1,54 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="hero-section py-5">
+        <h1 class="display-4 fw-bold text-primary mb-3">Sistema de Cidades Turísticas</h1>
+        <p class="lead mb-4">Bem-vindo ao sistema - cadastro de cidades turísticas!</p>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h5 class="card-title text-dark mb-3">Sobre</h5>
+                        <p class="card-text text-muted mb-4">
+                            Este sistema foi desenvolvido para facilitar o cadastro de cidades com pontos turísticos.
+                        </p>
+                        
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                            <a asp-page="/CityManager/CreateCity" class="btn btn-primary btn-lg px-4">
+                                Cadastrar Nova Cidade
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="features-section mt-5">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="text-center">
+                    <h5>Fácil Cadastro</h5>
+                    <p class="text-muted">Interface simples</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center">
+                    <h5>Organização</h5>
+                    <p class="text-muted">Sistema para gerenciar informações de destinos</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center">
+                    <h5>LGPD</h5>
+                    <p class="text-muted">Seus dados protegidos com criptografia avançada</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
