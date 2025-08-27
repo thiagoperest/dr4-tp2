@@ -31,21 +31,23 @@
                             <strong>Código do País</strong>
                         </div>
                     </div>
-                    
+
                     @for (int i = 0; i < 5; i++)
                     {
                         <div class="row mb-3 mt-2">
                             <div class="col-md-6">
-                                <input asp-for="Countries[i].CountryName" class="form-control" placeholder="Nome do país @(i + 1)" />
+                                <input asp-for="Countries[i].CountryName" class="form-control"
+                                       placeholder="Nome do país @(i + 1)"/>
                                 <span asp-validation-for="Countries[i].CountryName" class="text-danger"></span>
                             </div>
                             <div class="col-md-6">
-                                <input asp-for="Countries[i].CountryCode" class="form-control" placeholder="Código do país @(i + 1)" />
+                                <input asp-for="Countries[i].CountryCode" class="form-control"
+                                       placeholder="Código do país @(i + 1)"/>
                                 <span asp-validation-for="Countries[i].CountryCode" class="text-danger"></span>
                             </div>
                         </div>
                     }
-                    
+
                     <div class="d-grid mt-4">
                         <button type="submit" class="btn btn-primary">Cadastrar Países</button>
                     </div>
@@ -56,5 +58,5 @@
 </div>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+    <partial name="_ValidationScriptsPartial"/>
 }

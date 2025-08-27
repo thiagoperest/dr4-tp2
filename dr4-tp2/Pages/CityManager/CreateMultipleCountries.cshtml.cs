@@ -6,16 +6,15 @@ namespace dr4_tp2.Pages.CityManager
 {
     public class CreateMultipleCountriesModel : PageModel
     {
-        [BindProperty]
-        public List<InputModel> Countries { get; set; } = new List<InputModel>();
-        
+        [BindProperty] public List<InputModel> Countries { get; set; } = new List<InputModel>();
+
         public List<CountryMultiple> SubmittedCountries { get; set; } = new List<CountryMultiple>();
         public bool IsSubmitted { get; private set; }
 
         public void OnGet()
         {
             IsSubmitted = false;
-            
+
             Countries = new List<InputModel>();
             for (int i = 0; i < 5; i++)
             {
@@ -38,7 +37,7 @@ namespace dr4_tp2.Pages.CityManager
                     CountryCode = c.CountryCode
                 })
                 .ToList();
-            
+
             IsSubmitted = true;
             return Page();
         }
@@ -47,7 +46,7 @@ namespace dr4_tp2.Pages.CityManager
         {
             [Required(ErrorMessage = "O nome do país é obrigatório.")]
             public string CountryName { get; set; } = string.Empty;
-            
+
             [Required(ErrorMessage = "O código do país é obrigatório.")]
             [StringLength(2, MinimumLength = 2, ErrorMessage = "O código do país deve ter exatamente 2 caracteres.")]
             public string CountryCode { get; set; } = string.Empty;
