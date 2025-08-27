@@ -19,6 +19,19 @@ namespace dr4_tp2.Pages.CityManager
 
         public IActionResult OnPost()
         {
+            if (ModelState.IsValid)
+            {
+                var firstLetterName = char.ToUpper(Input.CountryName[0]);
+                var firstLetterCode = char.ToUpper(Input.CountryCode[0]);
+
+                if (firstLetterName != firstLetterCode)
+                {
+                    ModelState.AddModelError("Input.CountryCode", 
+                        "O código do país deve começar com a mesma letra do nome do país.");
+                    return Page();
+                }
+            }
+
             if (!ModelState.IsValid)
             {
                 return Page();
