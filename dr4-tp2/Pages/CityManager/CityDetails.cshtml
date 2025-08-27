@@ -1,0 +1,25 @@
+@page "{cityName}"
+@model dr4_tp2.Pages.CityManager.CityDetailsModel
+@{
+    ViewData["Title"] = "Detalhes da Cidade";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">@ViewData["Title"]</h3>
+            </div>
+            <div class="card-body text-center">
+                <h4 class="text-primary mb-4">
+                    Cidade: @Model.CityName
+                </h4>
+                
+                <div class="alert alert-info" role="alert">
+                    <p class="mb-0">Roteamento com parâmetros na URL.</p>
+                    <small class="text-muted">URL acessada: /CityManager/CityDetails/@Model.CityName</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+@page
+@model dr4_tp2.Pages.CityManager.CreateCountryModel
+@{
+    ViewData["Title"] = "Cadastro de País";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">@ViewData["Title"]</h3>
+            </div>
+            <div class="card-body">
+                @if (Model.Country != null && Model.IsSubmitted)
+                {
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">País cadastrado com sucesso!</h4>
+                        <p class="mb-0"><strong>Nome do país:</strong> @Model.Country.CountryName</p>
+                        <p class="mb-0"><strong>Código do país:</strong> @Model.Country.CountryCode</p>
+                    </div>
+                }
+
+                <form method="post">
+                    <div class="mb-3">
+                        <label asp-for="Input.CountryName" class="form-label">Nome do País:</label>
+                        <input asp-for="Input.CountryName" class="form-control" placeholder="Digite o nome do país" />
+                        <span asp-validation-for="Input.CountryName" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Input.CountryCode" class="form-label">Código do País:</label>
+                        <input asp-for="Input.CountryCode" class="form-control" placeholder="Digite o código do país" />
+                        <span asp-validation-for="Input.CountryCode" class="text-danger"></span>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Cadastrar País</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
